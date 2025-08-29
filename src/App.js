@@ -69,6 +69,11 @@ const FinancialCoachingApp = () => {
       {/* Services */}
       <div>
         <h2 className="text-3xl font-bold text-center mb-8 text-white">Coaching Services</h2>
+        <div className="text-center mb-8">
+  <p className="text-lg text-gray-300 bg-gray-700 rounded-lg p-4 border-l-4 border-green-400">
+    📍 All coaching sessions are available both virtually and in-person to accommodate your preferences and schedule.
+  </p>
+</div>
         <div className="grid md:grid-cols-2 gap-6">
           {services.map((service, idx) => (
             <div key={idx} className="bg-gray-800 border border-gray-700 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
