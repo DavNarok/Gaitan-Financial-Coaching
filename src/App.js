@@ -156,7 +156,7 @@ const FinancialCoachingApp = () => {
           </p>
           <div className="flex items-center justify-center space-x-2 text-lg">
             <Phone className="w-5 h-5 text-green-400" />
-            <span className="text-white font-semibold">(555) 123-4567</span>
+            <span className="text-white font-semibold">(805) 862-9604</span>
           </div>
         </div>
       </div>
@@ -491,7 +491,7 @@ const FinancialCoachingApp = () => {
           <div className="text-center">
             <MapPin className="w-8 h-8 text-purple-600 mx-auto mb-2" />
             <h3 className="font-semibold">Location</h3>
-            <p className="text-gray-600">Indiana, CA</p>
+            <p className="text-gray-600">Indianapolis, IN</p>
           </div>
         </div>
 
