@@ -29,7 +29,7 @@ const FinancialCoachingApp = () => {
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-orange-500 to-red-600 text-white p-8 rounded-lg text-center">
         <h1 className="text-4xl font-bold mb-4">Transform Your Financial Future</h1>
-        <p className="text-xl mb-6">David Gaitan - Dave Ramsey Certified Financial Coach</p>
+        <p className="text-xl mb-6">David Gaitan - certified through Dave Ramsey's Financial Coach Master Training</p>
         <p className="text-lg mb-8">Take control of your money, eliminate debt, and build wealth using proven strategies</p>
         <button 
           onClick={() => setActiveTab('schedule')}
@@ -47,16 +47,21 @@ const FinancialCoachingApp = () => {
             <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-4xl font-bold">
               DG
             </div>
-            <div className="text-yellow-400 font-semibold">Dave Ramsey Certified</div>
-            <div className="text-gray-300">Financial Coach</div>
+            <div className="text-yellow-400 font-semibold">Certified Financial Coach</div>
           </div>
           <div className="md:col-span-2">
-            <p className="text-gray-300 text-lg leading-relaxed mb-4">
-              Hi, I'm David Gaitan, and I'm passionate about helping families break free from financial stress and build lasting wealth. As a Dave Ramsey Certified Financial Coach, I've helped clients eliminate debt, build emergency funds, and create financial peace.
-            </p>
-            <p className="text-gray-300 text-lg leading-relaxed mb-4">
-              My own journey from financial struggle to freedom drives my commitment to your success. I understand the challenges you're facing because I've been there too. I'll guide you toward financial freedom with practical strategies that actually work.
-            </p>
+<p className="text-gray-300 text-lg leading-relaxed mb-4">
+  Hi, I'm David Gaitan, a Senior Supplier Quality Engineer Supervisor with over 10 years of experience, and I'm passionate about helping people discover their financial potential. Growing up in poverty taught me the value of every dollar, and finding my faith gave me purpose to help others break free from financial bondage.
+</p>
+<p className="text-gray-300 text-lg leading-relaxed mb-4">
+  My own journey from credit card debt, car payments, and student loans to complete financial freedom drives everything I do. The same year I decided to eliminate my debt, I started coaching others - leading Dave Ramsey Financial Peace University classes and Legacy Journey programs as a lead coach in my church. I'm officially certified through Dave Ramsey's Financial Coach Master Training program and bring 11 years of coaching experience to every session.
+</p>
+<p className="text-gray-300 text-lg leading-relaxed mb-4">
+  What makes my approach unique is combining my engineering background with proven financial principles. I bring technology and budgeting together, helping clients set up systems and tools that make managing money smoother and more efficient. Whether you're a family, individual, or even a company wanting to help employees achieve financial wellness, I use practical methods like the debt snowball, high-yield money markets, and plain common sense.
+</p>
+<p className="text-gray-300 text-lg leading-relaxed mb-4">
+  As a runner and hiker, I understand that financial freedom is like a marathon - it requires discipline, endurance, and celebrating milestones along the way. My passion comes from seeing people who doubt themselves realize they're more than capable of succeeding. My job is simply to bring out what's already in them.
+</p>
           </div>
         </div>
       </div>
@@ -614,7 +619,7 @@ const FinancialCoachingApp = () => {
       <footer className="bg-gray-800 text-white py-8 mt-16">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <p className="text-lg font-semibold mb-2">Ready to Take Control of Your Finances?</p>
-          <p className="text-gray-300 mb-4">David Gaitan - Dave Ramsey Certified Financial Coach</p>
+          <p className="text-gray-300 mb-4">David Gaitan - Certified through Dave Ramsey's Financial Coach Master Training</p>
           <button 
             onClick={() => setActiveTab('schedule')}
             className="bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors"
