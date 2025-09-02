@@ -364,17 +364,17 @@ const FinancialCoachingApp = () => {
         ))}
       </div>
 
-      <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-        <h3 className="text-lg font-semibold mb-4">Payment Methods Accepted</h3>
-        <div className="flex items-center space-x-4 text-sm text-gray-600">
-          <span>💳 Credit/Debit Cards</span>
-          <span>🏦 Bank Transfer</span>
-          <span>💰 PayPal</span>
-        </div>
-        <p className="text-sm text-gray-500 mt-4">
-          All payments are secure and encrypted. 30-day money-back guarantee.
-        </p>
-      </div>
+<div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+  <h3 className="text-lg font-semibold mb-4">Payment Methods Accepted</h3>
+  <div className="flex items-center space-x-4 text-sm text-gray-600">
+    <span>💳 Credit/Debit Cards</span>
+    <span>🔒 Secure Stripe Processing</span>
+    <span>📱 Mobile Payments</span>
+  </div>
+  <p className="text-sm text-gray-500 mt-4">
+    All payments are secure and encrypted through Stripe. Professional invoicing and receipts provided.
+  </p>
+</div>
     </div>
   );
 
