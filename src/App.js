@@ -329,10 +329,37 @@ const FinancialCoachingApp = () => {
               </div>
             </div>
             
-            <button className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center">
-  <CreditCard className="w-5 h-5 mr-2" />
-  Select Package
-</button>
+{service.name === '1-Time Coaching Session' ? (
+  <a 
+    href="https://buy.stripe.com/8x200j3wVbpbfvZb8c9AA00"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center"
+  >
+    <CreditCard className="w-5 h-5 mr-2" />
+    Select Package
+  </a>
+) : service.name === '1-on-1 Coaching Package' ? (
+  <a 
+    href="https://buy.stripe.com/9B600j1oNctf0B5dgk9AA01"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center"
+  >
+    <CreditCard className="w-5 h-5 mr-2" />
+    Select Package
+  </a>
+) : service.name === 'Monthly Subscription' ? (
+  <a 
+    href="https://buy.stripe.com/cNiaEX2sRal70B5dgk9AA02"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center"
+  >
+    <CreditCard className="w-5 h-5 mr-2" />
+    Select Package
+  </a>
+) : null}
           </div>
         ))}
       </div>
