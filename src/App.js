@@ -31,12 +31,14 @@ const FinancialCoachingApp = () => {
         <h1 className="text-4xl font-bold mb-4">Transform Your Financial Future</h1>
         <p className="text-xl mb-6">David Gaitan - certified through Dave Ramsey's Financial Coach Master Training</p>
         <p className="text-lg mb-8">Take control of your money, eliminate debt, and build wealth using proven strategies</p>
-        <button 
-          onClick={() => setActiveTab('schedule')}
-          className="bg-white text-blue-800 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
-        >
-          Schedule FREE Consultation
-        </button>
+<a 
+  href="https://calendar.app.google/oKVjpGsn6LxBcMNG8"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-white text-blue-800 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors inline-block"
+>
+  Schedule FREE Consultation
+</a>
       </div>
 
       {/* About Me Section */}
@@ -67,29 +69,73 @@ const FinancialCoachingApp = () => {
       </div>
 
       {/* Services */}
-      <div>
-        <h2 className="text-3xl font-bold text-center mb-8 text-white">Coaching Services</h2>
-        <div className="text-center mb-8">
-  <p className="text-lg text-gray-300 bg-gray-700 rounded-lg p-4 border-l-4 border-green-400">
-    📍 All coaching sessions are available both virtually and in-person to accommodate your preferences and schedule.
-  </p>
-</div>
-        <div className="grid md:grid-cols-2 gap-6">
-          {services.map((service, idx) => (
-            <div key={idx} className="bg-gray-800 border border-gray-700 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex justify-between items-start mb-4">
-                <h3 className="text-xl font-semibold text-white">{service.name}</h3>
-                <span className="text-2xl font-bold text-green-400">{service.price}</span>
-              </div>
-              <p className="text-gray-300 mb-4">{service.description}</p>
-              <div className="flex items-center text-sm text-gray-400">
-                <Clock className="w-4 h-4 mr-1" />
-                {service.duration}
-              </div>
-            </div>
-          ))}
+<div>
+  <h2 className="text-3xl font-bold text-center mb-8 text-white">Coaching Services</h2>
+  <div className="text-center mb-8">
+    <p className="text-lg text-gray-300 bg-gray-700 rounded-lg p-4 border-l-4 border-green-400">
+      📍 All coaching sessions are available both virtually and in-person to accommodate your preferences and schedule.
+    </p>
+  </div>
+  <div className="grid md:grid-cols-2 gap-6">
+    {services.map((service, idx) => (
+      <div key={idx} className="bg-gray-800 border border-gray-700 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+        <div className="flex justify-between items-start mb-4">
+          <h3 className="text-xl font-semibold text-white">{service.name}</h3>
+          <span className="text-2xl font-bold text-green-400">{service.price}</span>
         </div>
+        <p className="text-gray-300 mb-4">{service.description}</p>
+        <div className="flex items-center text-sm text-gray-400 mb-4">
+          <Clock className="w-4 h-4 mr-1" />
+          {service.duration}
+        </div>
+        
+        {/* Add payment buttons for paid services */}
+        {service.name === 'Initial Consultation' ? (
+          <a 
+            href="https://calendar.app.google/oKVjpGsn6LxBcMNG8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center"
+          >
+            <Calendar className="w-5 h-5 mr-2" />
+            Book Free Consultation
+          </a>
+        ) : service.name === '1-Time Coaching Session' ? (
+          <a 
+            href="https://buy.stripe.com/8x200j3wVbpbfvZb8c9AA00"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center"
+          >
+            <CreditCard className="w-5 h-5 mr-2" />
+            Select Package
+          </a>
+        ) : service.name === '1-on-1 Coaching Package' ? (
+          <a 
+            href="https://buy.stripe.com/9B600j1oNctf0B5dgk9AA01"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center"
+          >
+            <CreditCard className="w-5 h-5 mr-2" />
+            Select Package
+          </a>
+        ) : service.name === 'Monthly Subscription' ? (
+          <a 
+            href="https://buy.stripe.com/cNiaEX2sRal70B5dgk9AA02"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center"
+          >
+            <CreditCard className="w-5 h-5 mr-2" />
+            Select Package
+          </a>
+        ) : null}
+        
       </div>
+    ))}
+  </div>
+</div>
 
       {/* Testimonials */}
       <div>
@@ -284,9 +330,9 @@ const FinancialCoachingApp = () => {
             </div>
             
             <button className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center">
-              <CreditCard className="w-5 h-5 mr-2" />
-              Select Package
-            </button>
+  <CreditCard className="w-5 h-5 mr-2" />
+  Select Package
+</button>
           </div>
         ))}
       </div>
@@ -540,7 +586,7 @@ const FinancialCoachingApp = () => {
   const tabs = [
     { id: 'home', label: 'Home', icon: Users },
     { id: 'schedule', label: 'Schedule', icon: Calendar },
-    { id: 'forms', label: 'Forms', icon: FileText },
+   // { id: 'forms', label: 'Forms', icon: FileText },
     { id: 'payment', label: 'Packages', icon: CreditCard },
     { id: 'tools', label: 'Tools', icon: Calculator },
     { id: 'community', label: 'Community', icon: Users },
@@ -625,12 +671,14 @@ const FinancialCoachingApp = () => {
         <div className="max-w-6xl mx-auto px-4 text-center">
           <p className="text-lg font-semibold mb-2">Ready to Take Control of Your Finances?</p>
           <p className="text-gray-300 mb-4">David Gaitan - Certified through Dave Ramsey's Financial Coach Master Training</p>
-          <button 
-            onClick={() => setActiveTab('schedule')}
-            className="bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors"
-          >
-            Schedule Your Free Consultation Today
-          </button>
+         <a 
+  href="https://calendar.app.google/oKVjpGsn6LxBcMNG8"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors inline-block"
+>
+  Schedule Your Free Consultation Today
+</a>
         </div>
       </footer>
     </div>
