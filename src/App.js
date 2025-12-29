@@ -47,7 +47,11 @@ const FinancialCoachingApp = () => {
         <div className="grid md:grid-cols-3 gap-8 items-center">
           <div className="md:col-span-1 text-center">
             <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-4xl font-bold">
-              DG
+              <img 
+  src="/david-gaitan.jpg" 
+  alt="David Gaitan - Financial Coach"
+  className="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-blue-500"
+/>
             </div>
             <div className="text-yellow-400 font-semibold">Certified Financial Coach</div>
           </div>
