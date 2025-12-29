@@ -53,13 +53,13 @@ const FinancialCoachingApp = () => {
           </div>
           <div className="md:col-span-2">
 <p className="text-gray-300 text-lg leading-relaxed mb-4">
-  Hi, I'm David Gaitan, a Senior Supplier Quality Engineer Supervisor with over 10 years of experience, and I'm passionate about helping people discover their financial potential. Growing up in poverty taught me the value of every dollar, and finding my faith gave me purpose to help others break free from financial bondage.
+  Hi, I'm David Gaitan, and I'm passionate about helping people discover their financial potential. My early experiences with limited resources taught me the value of every dollar, and finding my faith gave me purpose to help others break free from financial bondage.
 </p>
 <p className="text-gray-300 text-lg leading-relaxed mb-4">
   My own journey from credit card debt, car payments, and student loans to complete financial freedom drives everything I do. The same year I decided to eliminate my debt, I started coaching others - leading Dave Ramsey Financial Peace University classes and Legacy Journey programs as a lead coach in my church. I'm officially certified through Dave Ramsey's Financial Coach Master Training program and bring 11 years of coaching experience to every session.
 </p>
 <p className="text-gray-300 text-lg leading-relaxed mb-4">
-  What makes my approach unique is combining my engineering background with proven financial principles. I bring technology and budgeting together, helping clients set up systems and tools that make managing money smoother and more efficient. Whether you're a family, individual, or even a company wanting to help employees achieve financial wellness, I use practical methods like the debt snowball, high-yield money markets, and plain common sense.
+  What makes my approach unique is combining my problem-solving background with proven financial principles. I bring technology and budgeting together, helping clients set up systems and tools that make managing money smoother and more efficient. Whether you're a family, individual, or even a company wanting to help employees achieve financial wellness, I use practical methods like the debt snowball, high-yield money markets, and plain common sense.
 </p>
 <p className="text-gray-300 text-lg leading-relaxed mb-4">
   As a runner and hiker, I understand that financial freedom is like a marathon - it requires discipline, endurance, and celebrating milestones along the way. My passion comes from seeing people who doubt themselves realize they're more than capable of succeeding. My job is simply to bring out what's already in them.
@@ -479,7 +479,7 @@ const FinancialCoachingApp = () => {
             </div>
           </div>
           <a 
-            href="https://discord.gg/97EcpXcB" 
+            href="https://discord.gg/zZaH3gEZUn" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-block bg-white text-indigo-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors"
