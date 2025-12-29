@@ -42,20 +42,18 @@ const FinancialCoachingApp = () => {
       </div>
 
       {/* About Me Section */}
-      <div className="bg-gray-800 border border-gray-700 rounded-lg p-8">
-        <h2 className="text-3xl font-bold text-center mb-6 text-white">About David Gaitan</h2>
-        <div className="grid md:grid-cols-3 gap-8 items-center">
-          <div className="md:col-span-1 text-center">
-            <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-4xl font-bold">
-              <img 
-  src="/david-gaitan.jpg" 
-  alt="David Gaitan - Financial Coach"
-  className="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-blue-500"
-/>
-            </div>
-            <div className="text-yellow-400 font-semibold">Certified Financial Coach</div>
-          </div>
-          <div className="md:col-span-2">
+     <div className="bg-gray-800 border border-gray-700 rounded-lg p-8">
+  <h2 className="text-3xl font-bold text-center mb-6 text-white">About David Gaitan</h2>
+  <div className="grid md:grid-cols-3 gap-8 items-center">
+    <div className="md:col-span-1 text-center">
+      <img 
+        src="/david-gaitan.jpg" 
+        alt="David Gaitan - Financial Coach"
+         className="w-48 h-96 rounded-lg mx-auto mb-4 object-cover object-top border-4 border-blue-500"
+      />
+      <div className="text-yellow-400 font-semibold">Certified Financial Coach</div>
+    </div>
+    <div className="md:col-span-2">
 <p className="text-gray-300 text-lg leading-relaxed mb-4">
   Hi, I'm David Gaitan, and I'm passionate about helping people discover their financial potential. My early experiences with limited resources taught me the value of every dollar, and finding my faith gave me purpose to help others break free from financial bondage.
 </p>
