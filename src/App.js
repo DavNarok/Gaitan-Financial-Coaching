@@ -159,38 +159,127 @@ const FinancialCoachingApp = () => {
     </div>
   );
 
-  const SchedulePage = () => (
-    <div className="max-w-4xl mx-auto space-y-6">
-      <h2 className="text-3xl font-bold text-center mb-8 text-white">Schedule Your Free Consultation</h2>
+ const SchedulePage = () => {
+  const [formData, setFormData] = useState({
+    // Personal Information
+    name: '',
+    age: '',
+    typeOfWork: '',
+    spouseName: '',
+    spouseAge: '',
+    spouseTypeOfWork: '',
+    completedFPU: '',
+    numChildren: '',
+    address: '',
+    city: '',
+    state: '',
+    zip: '',
+    phone: '',
+    email: '',
+    preferredContact: '',
+    // Income
+    monthlyIncome: '',
+    irregularIncome: '',
+    usesBudget: '',
+    // Savings
+    hasEmergencyFund: '',
+    emergencyFundAmount: '',
+    investingRetirement: '',
+    retirementBalance: '',
+    retirementContribution: '',
+    nonRetirementSavings: '',
+    savingsBalance: '',
+    savingsContribution: '',
+    // Housing
+    rentOrOwn: '',
+    currentOnHousing: '',
+    housingPayment: '',
+    // Consumer Debt
+    vehicleLoans: '',
+    currentOnVehicle: '',
+    vehiclePayment: '',
+    creditCardDebt: '',
+    studentLoans: '',
+    taxDebt: '',
+    otherDebt: '',
+    otherDebtType: '',
+    // Focus Areas
+    primaryFocus: '',
+    topConcern1: '',
+    topConcern2: '',
+    topConcern3: ''
+  });
+
+  const [submitStatus, setSubmitStatus] = useState('');
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setSubmitStatus('sending');
+  
+  try {
+    // Send to FormSubmit.co for email delivery
+    const response = await fetch('https://formsubmit.co/coach.d.gaitan.com@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        _subject: 'New Client Intake Form Submission',
+        _template: 'table',
+        ...formData,
+        _captcha: 'false'
+      })
+    });
+    
+    if (response.ok) {
+      setSubmitStatus('success');
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setFormData({
+          name: '', age: '', typeOfWork: '', spouseName: '', spouseAge: '',
+          spouseTypeOfWork: '', completedFPU: '', numChildren: '', address: '',
+          city: '', state: '', zip: '', phone: '', email: '', preferredContact: '',
+          monthlyIncome: '', irregularIncome: '', usesBudget: '', hasEmergencyFund: '',
+          emergencyFundAmount: '', investingRetirement: '', retirementBalance: '',
+          retirementContribution: '', nonRetirementSavings: '', savingsBalance: '',
+          savingsContribution: '', rentOrOwn: '', currentOnHousing: '', housingPayment: '',
+          vehicleLoans: '', currentOnVehicle: '', vehiclePayment: '', creditCardDebt: '',
+          studentLoans: '', taxDebt: '', otherDebt: '', otherDebtType: '', primaryFocus: '',
+          topConcern1: '', topConcern2: '', topConcern3: ''
+        });
+        setSubmitStatus('');
+      }, 3000);
+    } else {
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus(''), 3000);
+    }
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    setSubmitStatus('error');
+    setTimeout(() => setSubmitStatus(''), 3000);
+  }
+};
+
+  return (
+    <div className="max-w-4xl mx-auto space-y-8">
+      <h2 className="text-3xl font-bold text-center mb-8 text-white">Schedule Your Consultation & Complete Intake Form</h2>
       
+      {/* Booking Section */}
       <div className="bg-gray-800 border border-gray-700 rounded-lg p-6 text-center">
-        <h3 className="text-xl font-semibold mb-4 text-white">Book Your 60-Minute Initial Consultation</h3>
+        <h3 className="text-xl font-semibold mb-4 text-white">Step 1: Book Your Free Consultation</h3>
         <p className="text-gray-300 mb-6">
-          Ready to take the first step toward financial freedom? Schedule your free consultation and let's discuss your financial goals and challenges.
+          Select a time that works for you using the calendar below.
         </p>
         
-        <div className="bg-gray-700 rounded-lg p-6 mb-6">
-          <h4 className="text-lg font-semibold text-white mb-3">What to Expect:</h4>
-          <div className="grid md:grid-cols-2 gap-4 text-left">
-            <div className="flex items-start space-x-2">
-              <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-              <span className="text-gray-300">Comprehensive financial assessment</span>
-            </div>
-            <div className="flex items-start space-x-2">
-              <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-              <span className="text-gray-300">Personalized action plan</span>
-            </div>
-            <div className="flex items-start space-x-2">
-              <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-              <span className="text-gray-300">Debt elimination strategy</span>
-            </div>
-            <div className="flex items-start space-x-2">
-              <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-              <span className="text-gray-300">Q&A about your situation</span>
-            </div>
-          </div>
-        </div>
-
         <a 
           href="https://calendar.app.google/oKVjpGsn6LxBcMNG8" 
           target="_blank" 
@@ -198,28 +287,560 @@ const FinancialCoachingApp = () => {
           className="inline-block bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition-colors shadow-lg"
         >
           <Calendar className="w-5 h-5 inline mr-2" />
-          Schedule Free Consultation
+          Open Booking Calendar
         </a>
-        
-        <p className="text-gray-400 text-sm mt-4">
-          * No credit card required • 100% Free • 60 minutes
-        </p>
       </div>
 
+      {/* Intake Form Section */}
       <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
-        <h3 className="text-xl font-semibold mb-4 text-white">Prefer to Call?</h3>
-        <div className="text-center">
-          <p className="text-gray-300 mb-4">
-            If you'd rather speak directly, feel free to give me a call to schedule your consultation.
-          </p>
-          <div className="flex items-center justify-center space-x-2 text-lg">
-            <Phone className="w-5 h-5 text-green-400" />
-            <span className="text-white font-semibold">(805) 862-9604</span>
+        <h3 className="text-xl font-semibold mb-4 text-white">Step 2: Complete Your Intake Form</h3>
+        <p className="text-gray-300 mb-6">
+          Please fill out this form before your session so I can best prepare to help you achieve your financial goals.
+        </p>
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Personal Information */}
+          <div className="bg-gray-700 p-4 rounded-lg">
+            <h4 className="text-lg font-semibold text-white mb-4">Personal Information</h4>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Your Name *</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Age</label>
+                <input
+                  type="number"
+                  name="age"
+                  value={formData.age}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Type of Work</label>
+                <input
+                  type="text"
+                  name="typeOfWork"
+                  value={formData.typeOfWork}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Spouse Name (if applicable)</label>
+                <input
+                  type="text"
+                  name="spouseName"
+                  value={formData.spouseName}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Spouse Age</label>
+                <input
+                  type="number"
+                  name="spouseAge"
+                  value={formData.spouseAge}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Spouse Type of Work</label>
+                <input
+                  type="text"
+                  name="spouseTypeOfWork"
+                  value={formData.spouseTypeOfWork}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Completed FPU? *</label>
+                <select
+                  name="completedFPU"
+                  value={formData.completedFPU}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                >
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="What's FPU?">What's FPU?</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Number of Children/Dependents</label>
+                <input
+                  type="number"
+                  name="numChildren"
+                  value={formData.numChildren}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+            </div>
           </div>
-        </div>
+
+          {/* Contact Information */}
+          <div className="bg-gray-700 p-4 rounded-lg">
+            <h4 className="text-lg font-semibold text-white mb-4">Contact Information</h4>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">Mailing Address</label>
+                <input
+                  type="text"
+                  name="address"
+                  value={formData.address}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">City</label>
+                <input
+                  type="text"
+                  name="city"
+                  value={formData.city}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">State</label>
+                <input
+                  type="text"
+                  name="state"
+                  value={formData.state}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">ZIP</label>
+                <input
+                  type="text"
+                  name="zip"
+                  value={formData.zip}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Phone *</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">Email *</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">Preferred Contact Method *</label>
+                <select
+                  name="preferredContact"
+                  value={formData.preferredContact}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                >
+                  <option value="">Select...</option>
+                  <option value="In Person">In Person</option>
+                  <option value="Phone">Phone</option>
+                  <option value="Video Conference">Video Conference</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          {/* Income */}
+          <div className="bg-gray-700 p-4 rounded-lg">
+            <h4 className="text-lg font-semibold text-white mb-4">Income</h4>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Monthly Net Take-Home Pay</label>
+                <input
+                  type="text"
+                  name="monthlyIncome"
+                  value={formData.monthlyIncome}
+                  onChange={handleInputChange}
+                  placeholder="$0"
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Irregular Income?</label>
+                <select
+                  name="irregularIncome"
+                  value={formData.irregularIncome}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                >
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Use Monthly Budget?</label>
+                <select
+                  name="usesBudget"
+                  value={formData.usesBudget}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                >
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          {/* Savings */}
+          <div className="bg-gray-700 p-4 rounded-lg">
+            <h4 className="text-lg font-semibold text-white mb-4">Savings</h4>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Have Emergency Fund?</label>
+                <select
+                  name="hasEmergencyFund"
+                  value={formData.hasEmergencyFund}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                >
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Emergency Fund Amount</label>
+                <input
+                  type="text"
+                  name="emergencyFundAmount"
+                  value={formData.emergencyFundAmount}
+                  onChange={handleInputChange}
+                  placeholder="$0"
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Investing for Retirement?</label>
+                <select
+                  name="investingRetirement"
+                  value={formData.investingRetirement}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                >
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Retirement Balance</label>
+                <input
+                  type="text"
+                  name="retirementBalance"
+                  value={formData.retirementBalance}
+                  onChange={handleInputChange}
+                  placeholder="$0"
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Monthly Retirement Contribution</label>
+                <input
+                  type="text"
+                  name="retirementContribution"
+                  value={formData.retirementContribution}
+                  onChange={handleInputChange}
+                  placeholder="$0"
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Non-Retirement Savings?</label>
+                <select
+                  name="nonRetirementSavings"
+                  value={formData.nonRetirementSavings}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                >
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Savings Balance</label>
+                <input
+                  type="text"
+                  name="savingsBalance"
+                  value={formData.savingsBalance}
+                  onChange={handleInputChange}
+                  placeholder="$0"
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Monthly Savings Contribution</label>
+                <input
+                  type="text"
+                  name="savingsContribution"
+                  value={formData.savingsContribution}
+                  onChange={handleInputChange}
+                  placeholder="$0"
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Housing */}
+          <div className="bg-gray-700 p-4 rounded-lg">
+            <h4 className="text-lg font-semibold text-white mb-4">Housing</h4>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Rent or Own?</label>
+                <select
+                  name="rentOrOwn"
+                  value={formData.rentOrOwn}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                >
+                  <option value="">Select...</option>
+                  <option value="Rent">Rent</option>
+                  <option value="Own">Own</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Current on Payment?</label>
+                <select
+                  name="currentOnHousing"
+                  value={formData.currentOnHousing}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                >
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Total Monthly Payment</label>
+                <input
+                  type="text"
+                  name="housingPayment"
+                  value={formData.housingPayment}
+                  onChange={handleInputChange}
+                  placeholder="$0"
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Consumer Debt */}
+          <div className="bg-gray-700 p-4 rounded-lg">
+            <h4 className="text-lg font-semibold text-white mb-4">Consumer Debt</h4>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Vehicle Loans?</label>
+                <select
+                  name="vehicleLoans"
+                  value={formData.vehicleLoans}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                >
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Current on Vehicle Payments?</label>
+                <select
+                  name="currentOnVehicle"
+                  value={formData.currentOnVehicle}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                >
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Total Monthly Vehicle Payments</label>
+                <input
+                  type="text"
+                  name="vehiclePayment"
+                  value={formData.vehiclePayment}
+                  onChange={handleInputChange}
+                  placeholder="$0"
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                />
+              </div>
+            </div>
+            
+            <div className="mt-4">
+              <h5 className="text-md font-semibold text-white mb-3">Total Balances Due:</h5>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Credit Cards</label>
+                  <input
+                    type="text"
+                    name="creditCardDebt"
+                    value={formData.creditCardDebt}
+                    onChange={handleInputChange}
+                    placeholder="$0"
+                    className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Student Loans</label>
+                  <input
+                    type="text"
+                    name="studentLoans"
+                    value={formData.studentLoans}
+                    onChange={handleInputChange}
+                    placeholder="$0"
+                    className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Taxes</label>
+                  <input
+                    type="text"
+                    name="taxDebt"
+                    value={formData.taxDebt}
+                    onChange={handleInputChange}
+                    placeholder="$0"
+                    className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Other (specify type)</label>
+                  <input
+                    type="text"
+                    name="otherDebtType"
+                    value={formData.otherDebtType}
+                    onChange={handleInputChange}
+                    placeholder="Type of debt"
+                    className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg mb-2"
+                  />
+                  <input
+                    type="text"
+                    name="otherDebt"
+                    value={formData.otherDebt}
+                    onChange={handleInputChange}
+                    placeholder="$0"
+                    className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Primary Focus */}
+          <div className="bg-gray-700 p-4 rounded-lg">
+            <h4 className="text-lg font-semibold text-white mb-4">Coaching Focus</h4>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">What primary issue should we focus on during your coaching session? *</label>
+                <select
+                  name="primaryFocus"
+                  value={formData.primaryFocus}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                >
+                  <option value="">Select...</option>
+                  <option value="Budgeting">Budgeting</option>
+                  <option value="Real Estate">Real Estate</option>
+                  <option value="Dealing With Collectors">Dealing With Collectors</option>
+                  <option value="Wealth Building/Investing">Wealth Building/Investing</option>
+                  <option value="Debt Elimination">Debt Elimination</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">List your top 3 concerns/questions related to your selection:</label>
+                <div className="space-y-2">
+                  <input
+                    type="text"
+                    name="topConcern1"
+                    value={formData.topConcern1}
+                    onChange={handleInputChange}
+                    placeholder="1."
+                    className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                  />
+                  <input
+                    type="text"
+                    name="topConcern2"
+                    value={formData.topConcern2}
+                    onChange={handleInputChange}
+                    placeholder="2."
+                    className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                  />
+                  <input
+                    type="text"
+                    name="topConcern3"
+                    value={formData.topConcern3}
+                    onChange={handleInputChange}
+                    placeholder="3."
+                    className="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Submit Button */}
+          <div className="text-center">
+            <button
+              type="submit"
+              disabled={submitStatus === 'sending'}
+              className="bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition-colors disabled:bg-gray-600"
+            >
+              {submitStatus === 'sending' ? 'Submitting...' : submitStatus === 'success' ? 'Submitted Successfully!' : 'Submit Intake Form'}
+            </button>
+            
+            {submitStatus === 'success' && (
+              <p className="text-green-400 mt-4">Thank you! Your intake form has been submitted. I'll review it before our session.</p>
+            )}
+          </div>
+        </form>
       </div>
     </div>
   );
+};
 
   const FormsPage = () => (
     <div className="max-w-3xl mx-auto space-y-6">
