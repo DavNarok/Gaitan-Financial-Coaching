@@ -4,6 +4,7 @@ import { Calendar, Clock, DollarSign, FileText, Users, CreditCard, Calculator, P
 
 const FinancialCoachingApp = () => {
   const [activeTab, setActiveTab] = useState('home');
+  const showTestimonials = false;
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
   const [formData, setFormData] = useState({});
@@ -140,6 +141,7 @@ const FinancialCoachingApp = () => {
 </div>
 
       {/* Testimonials */}
+      {showTestimonials && ( 
       <div>
         <h2 className="text-3xl font-bold text-center mb-8 text-white">Client Success Stories</h2>
         <div className="grid md:grid-cols-3 gap-6">
@@ -156,6 +158,7 @@ const FinancialCoachingApp = () => {
           ))}
         </div>
       </div>
+      )}
     </div>
   );
 
