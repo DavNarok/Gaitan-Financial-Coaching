@@ -5,14 +5,8 @@ import { Calendar, Clock, DollarSign, FileText, Users, CreditCard, Calculator, P
 const FinancialCoachingApp = () => {
   const [activeTab, setActiveTab] = useState('home');
   const showTestimonials = false;
-  const [selectedDate, setSelectedDate] = useState('');
-  const [selectedTime, setSelectedTime] = useState('');
-  const [formData, setFormData] = useState({});
 
-  // Sample available times
-  const availableTimes = ['9:00 AM', '10:30 AM', '1:00 PM', '2:30 PM', '4:00 PM'];
-  
-  const services = [
+   const services = [
     { name: 'Initial Consultation', price: 'FREE', duration: '60 min', description: 'Comprehensive financial assessment and goal setting' },
     { name: '1-Time Coaching Session', price: '$150', duration: '90 min', description: 'Single focused session on your specific financial challenge' },
     { name: '1-on-1 Coaching Package', price: '$750', duration: '6 sessions', description: 'Complete financial transformation with personalized guidance' },
